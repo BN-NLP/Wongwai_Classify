@@ -1,8 +1,21 @@
 import streamlit as st
 import pandas as pd
 
+
 def upload_file():
     st.set_page_config(page_title="Wong-Wai", page_icon=":pushpin:", layout="wide")
+
+    st.markdown(
+        """
+        <style>
+        .stApp {
+            background-color: white !important;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
     image_path = "IMG_6027.png" 
     st.image(image_path, width=300 ) #use_container_width =True
     st.title("Wong-Wai AI")
@@ -14,13 +27,13 @@ def upload_file():
 
     with col1:
         st.subheader("📂 Upload File")
-        uploaded_file = st.file_uploader("Choose a file", type=["xlsx", "csv"])
+        uploaded_file = st.file_uploader("เลือกไฟล์", type=["xlsx", "csv"])
 
     selected_data = None
 
     if uploaded_file is not None:
         with col1:
-            st.subheader("🔍 Select Columns")
+            st.subheader("🔍 Select Classify Columns")
 
         with col2:
             st.subheader("📊 Data Preview")
@@ -31,14 +44,14 @@ def upload_file():
             elif uploaded_file.name.endswith(".xlsx"):
                 xls = pd.ExcelFile(uploaded_file)
                 sheet_names = xls.sheet_names
-                selected_sheet = st.selectbox("Choose a sheet", sheet_names)
+                selected_sheet = st.selectbox("เลือก sheet ที่ต้องการดึงข้อมูล", sheet_names)
                 df = pd.read_excel(uploaded_file, sheet_name=selected_sheet)
 
             df = df.applymap(str)  # แปลงข้อมูลเป็น string
             st.write(df.head())  # แสดงตารางตัวอย่าง
         
         with col1:  # กล่องเลือกคอลัมน์อยู่ฝั่งซ้าย
-            column1 = st.selectbox("Select first column", df.columns.tolist(), key="col1")
+            column1 = st.selectbox("เลือก columns ข้อความที่ต้องการใช้ทำ Analysis", df.columns.tolist(), key="col1")
 
             # # กรองคอลัมน์ที่เหลือโดยไม่รวม column1
             # available_columns_2 = [col for col in df.columns if col != column1]

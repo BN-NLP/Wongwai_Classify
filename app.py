@@ -10,6 +10,7 @@ import asyncio
 import openai
 import random
 
+
 msg= upload_file()
 # โหลดค่าจาก .env
 load_dotenv()
