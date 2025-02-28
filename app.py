@@ -17,10 +17,10 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 
 # st.write(openai_api_key)
 
-if not openai_api_key:
-    st.error("API Key is missing. Please check your .env file.")
-else:
-    st.success("API Key loaded successfully!")
+# if not openai_api_key:
+#     st.error("API Key is missing. Please check your .env file.")
+# else:
+#     st.success("API Key loaded successfully!")
 
 
 # if msg:
