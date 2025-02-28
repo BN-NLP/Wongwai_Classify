@@ -5,16 +5,16 @@ import pandas as pd
 def upload_file():
     st.set_page_config(page_title="Wong-Wai", page_icon=":pushpin:", layout="wide")
 
-    st.markdown(
-        """
-        <style>
-        .stApp {
-            background-color: white !important;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+    # st.markdown(
+    #     """
+    #     <style>
+    #     .stApp {
+    #         background-color: white !important;
+    #     }
+    #     </style>
+    #     """,
+    #     unsafe_allow_html=True
+    # )
 
     image_path = "IMG_6027.png" 
     st.image(image_path, width=300 ) #use_container_width =True
