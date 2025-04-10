@@ -134,10 +134,10 @@ if openai_api_key:
         classify_exp = classify_exp[:min_length]
         classify_val = classify_val[:min_length]
 
-        st.write(
-            len(sentiment_exp), len(sentiment_val), len(IS_TRUE_exp), len(IS_TRUE_val),
-            len(classify_exp), len(classify_val)
-        )
+        # st.write(
+        #     len(sentiment_exp), len(sentiment_val), len(IS_TRUE_exp), len(IS_TRUE_val),
+        #     len(classify_exp), len(classify_val)
+        # )
 
 
         if len(sentiment_exp) == len(sentiment_val) == len(IS_TRUE_exp) == len(IS_TRUE_val) == len(classify_exp) == len(classify_val):
@@ -173,7 +173,8 @@ if openai_api_key:
                     "True You": classify_val.count("True You"),
                     "True ID": classify_val.count("True ID"),
                     "True iService": classify_val.count("True iService"),
-                    "True Corp": classify_val.count("True Corp")
+                    "True Corp": classify_val.count("True Corp"),
+                    "Dtac": classify_val.count("Dtac")
                 }
                 total_classify = sum(classify_counts.values())
                 # แสดงจำนวน Classify
