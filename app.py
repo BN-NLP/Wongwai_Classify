@@ -43,7 +43,7 @@ classify_new = []
 
 if openai_api_key:
     openai.api_key = openai_api_key
-    model = "gpt-4o-mini" #เปลี่ยน model ได้
+    model = "o3-mini" #เปลี่ยน model ได้
 
     client = AsyncOpenAI(api_key=openai.api_key)
 
